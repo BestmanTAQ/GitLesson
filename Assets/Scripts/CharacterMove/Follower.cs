@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts.GitLesson
+namespace GitLesson.CharacterMove
 {
     public class Follower : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Scripts.GitLesson
 
         private void Move()
         {
-            Vector3 nextPosition = Vector3.Lerp(
+            var nextPosition = Vector3.Lerp(
                 transform.position,
                 targetTransform.position + offset,
                 Time.fixedDeltaTime * smoothing);

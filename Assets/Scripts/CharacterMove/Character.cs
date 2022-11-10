@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts.GitLesson
+namespace GitLesson.CharacterMove
 {
     [RequireComponent(typeof(CharacterController))]
     public class Character : MonoBehaviour
@@ -47,20 +47,20 @@ namespace Scripts.GitLesson
 
         private bool IsOnTheGround()
         {
-            bool result = Physics.CheckSphere(groundCheckerPivot.position, checkGroundRadius, groundMask);
+            var result = Physics.CheckSphere(groundCheckerPivot.position, checkGroundRadius, groundMask);
             return result;
         }
 
         private void Move(Vector3 direction)
         {
-            _controller.Move(direction * speed * Time.fixedDeltaTime);
+            _controller.Move(direction *(speed * Time.fixedDeltaTime));
         }
 
         private void DoGravity()
         {
             _velocity += gravity * Time.fixedDeltaTime;
 
-            _controller.Move(Vector3.up * _velocity * Time.fixedDeltaTime);
+            _controller.Move(Vector3.up *(_velocity * Time.fixedDeltaTime));
         }
 
         private void Jump()
